@@ -63,29 +63,29 @@
 -- );
 
 
-CREATE TABLE fact_sales_info (
-    sales_key           SMALLINT        PRIMARY KEY,
-    product_key         INT             NOT NULL,
-    customer_key        INT             NOT NULL,
-    promotion_key       INT,
-    store_key           INT             NOT NULL,
-    date_key            SMALLINT,
-    order_item_key      INT             NOT NULL,
-    unit_sold           INT             NOT NULL,
-    gross_total         DECIMAL(10,2)   NOT NULL,
-    discount            DECIMAL(5,2)    NOT NULL,
-    net_total           DECIMAL(10,2)   NOT NULL,
-    order_created_date  DATETIME,
-    payment_date        DATETIME,
+-- CREATE TABLE fact_sales_info (
+--     sales_key           SMALLINT        PRIMARY KEY,
+--     product_key         INT             NOT NULL,
+--     customer_key        INT             NOT NULL,
+--     promotion_key       INT,
+--     store_key           INT             NOT NULL,
+--     date_key            SMALLINT,
+--     order_item_key      INT             NOT NULL,
+--     unit_sold           INT             NOT NULL,
+--     gross_total         DECIMAL(10,2)   NOT NULL,
+--     discount            DECIMAL(5,2)    NOT NULL,
+--     net_total           DECIMAL(10,2)   NOT NULL,
+--     order_created_date  DATETIME,
+--     payment_date        DATETIME,
 
-    FOREIGN KEY (product_key) REFERENCES dim_product(product_key) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    FOREIGN KEY (customer_key) REFERENCES dim_customer(customer_key) ON DELETE NO ACTION ON UPDATE NO ACTION,   
-    FOREIGN KEY (promotion_key) REFERENCES dim_promotion(promotion_key) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    FOREIGN KEY (store_key) REFERENCES dim_store(store_key) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    FOREIGN KEY (date_key) REFERENCES dim_date(date_key) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    FOREIGN KEY (order_item_key) REFERENCES sales.order_item (order_item_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
-)
+--     FOREIGN KEY (product_key) REFERENCES dim_product(product_key) ON DELETE NO ACTION ON UPDATE NO ACTION,
+--     FOREIGN KEY (customer_key) REFERENCES dim_customer(customer_key) ON DELETE NO ACTION ON UPDATE NO ACTION,   
+--     FOREIGN KEY (promotion_key) REFERENCES dim_promotion(promotion_key) ON DELETE NO ACTION ON UPDATE NO ACTION,
+--     FOREIGN KEY (store_key) REFERENCES dim_store(store_key) ON DELETE NO ACTION ON UPDATE NO ACTION,
+--     FOREIGN KEY (date_key) REFERENCES dim_date(date_key) ON DELETE NO ACTION ON UPDATE NO ACTION,
+--     FOREIGN KEY (order_item_key) REFERENCES sales.order_item (order_item_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+-- )
 
-SELECT *
-FROM fact_sales_info;
+-- SELECT *
+-- FROM fact_sales_info;
 

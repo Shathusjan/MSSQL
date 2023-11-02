@@ -215,3 +215,38 @@
 -- FROM fact_sales_info;
 
 
+-- DECLARE @sales_key SMALLINT = 1;
+-- DECLARE @date DATE = (SELECT CONVERT(date, fact_sales_info.payment_date) FROM fact_sales_info WHERE fact_sales_info.sales_key = @sales_key);
+
+-- DECLARE @order_date_key SMALLINT = (SELECT dim_date.date_key FROM dim_date WHERE dim_date.date_string = @date);
+-- SELECT @order_date_key AS order_date;
+
+-- UPDATE fact_sales_info
+-- SET date_key = 304
+-- WHERE fact_sales_info.sales_key = 1
+
+
+
+--- Validate the payment_date with dim_date.date_string and get the date_key here
+---------------------------------------------------------------------------------- 
+
+-- DECLARE @sales_key SMALLINT;
+-- DECLARE @date DATE;
+-- DECLARE @order_date_key SMALLINT;
+
+-- SET @sales_key = 4;
+
+-- WHILE @sales_key <= (SELECT MAX(sales_key) FROM fact_sales_info)
+-- BEGIN
+
+--     SET @date = (SELECT CONVERT(date, payment_date) FROM fact_sales_info WHERE sales_key = @sales_key);
+
+--     SET @order_date_key = (SELECT date_key FROM dim_date WHERE date_string = @date);
+
+--     UPDATE fact_sales_info
+--     SET date_key = @order_date_key
+--     WHERE sales_key = @sales_key;
+
+--     SET @sales_key = @sales_key + 1;
+
+-- END;
