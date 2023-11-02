@@ -34,3 +34,18 @@ WHERE orders_id = 3;
 SELECT *
 FROM sales.customer;
 
+-- SELECT production.product.product_id, production.product.product_name, dim_product.product_key, dim_product.product_name
+-- FROM dim_product
+-- INNER JOIN production.product ON dim_product.product_key = production.product.product_id; 
+
+
+ALTER TABLE fact_sales_info
+ALTER COLUMN discount DECIMAL(5,2);
+
+DROP TABLE fact_sales_info;
+
+SELECT sales.orders.order_item_id, sales.order_item.promotion_id
+FROM sales.order_item
+INNER JOIN sales.orders ON sales.orders.order_item_id = sales.order_item.order_item_id;
+
+
